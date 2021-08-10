@@ -45,7 +45,8 @@ def parse_args(args: list) -> dict:
             sys.exit(2)
 
     if not values["input"]:
-        print("Input omitted. You can input a valid json with string fields below. Use ctrl+D to end the input.")
+        print("Input omitted. You can input a valid json with string fields below. "
+              "Use ctrl+D to end the input. (you can pass the -h flag to see the command usage)")
         try:
             values["input"] = json.load(sys.stdin)
         except json.decoder.JSONDecodeError:
