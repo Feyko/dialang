@@ -58,10 +58,10 @@ def parse_args(args: list) -> dict:
 
 def changelog(write: dict = None):
     if write is None:
-        with open("changes/grammar_changelog.dialang", 'r') as changelog_file:
+        with open(".dialang/grammar_changelog.json", 'r') as changelog_file:
             return json.load(changelog_file)
     else:
-        with open("changes/grammar_changelog.dialang", 'w') as changelog_file:
+        with open(".dialang/grammar_changelog.json", 'w') as changelog_file:
             return json.dump(write, changelog_file)
 
 
@@ -77,8 +77,8 @@ def fix_grammar(cpython_root: str, redirects: dict):
             content, new_changes = apply_grammar_redirects_to_text(content, redirects, previous_changes)
             overwrite_file_content(grammar_file, content)
             changelog(new_changes)
-            logging.debug("Successfully applied the grammar changes!")
-            print("Successfully applied the grammar changes!")
+            logging.debug("Successfully applied the grammar .dialang!")
+            print("Successfully applied the grammar .dialang!")
     except FileNotFoundError:
         print("The CPython source path is invalid.")
 
