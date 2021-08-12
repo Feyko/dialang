@@ -77,8 +77,8 @@ def fix_grammar(cpython_root: str, redirects: dict):
             content, new_changes = apply_grammar_redirects_to_text(content, redirects, previous_changes)
             overwrite_file_content(grammar_file, content)
             changelog(new_changes)
-            logging.debug("Successfully applied the grammar .dialang!")
-            print("Successfully applied the grammar .dialang!")
+            logging.debug("Successfully applied the grammar changes!")
+            print("Successfully applied the grammar changes!")
     except FileNotFoundError:
         print("The CPython source path is invalid.")
 
